@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Schoolchat</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <header class="header_block">
+      <div class="header_links">
+        <a href="/" class="header_link">TOP</a>
+        <a href="/postboards" class="header_link">板一覧</a>
+        <a href="/posts/001" class="header_link">Your name</a>
+      </div>
+    </header>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<h1>ファミリー板</h1>
+<p>辛いこと(家族関係)があったら話してください。<br>
+    逆に相談にも乗ってあげてください。 気軽にね。</p>
+
+<h2>チャット欄</h2>
+<%= form_tag "/posts/p002", method: :post, data: { turbo_frame: "chat_frame" } do %>
+  <textarea class="form_textarea" name="content"></textarea><br>
+  <input type="submit" value="送信" class="form_submit">
+<% end %>
+  <div class="posts">
+    <!-- この辺がチャット欄 (読み込む前から存在していたもの) -->
+    <% @posts.each do |post| %>
+      <div class="post">
+        <span class="post_id"><%= post.id %> 名前: <%=  %></span>
+        <br>
+        <%= post.content %>
+      </div>
+    <% end %>
+  </div>

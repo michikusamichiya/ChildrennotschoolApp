@@ -1,0 +1,19 @@
+<h1>スマホパソコン板</h1>
+<p>パソコンやスマホでわからないことがあれば聞いてみたり、<br>
+    逆に教えてあげてみましょう！ とにかく気軽にね。</p>
+
+<h2>チャット欄</h2>
+<%= form_tag "/posts/p001", method: :post, data: { turbo_frame: "chat_frame" } do %>
+  <textarea class="form_textarea" name="content"></textarea><br>
+  <input type="submit" value="送信" class="form_submit">
+<% end %>
+  <div class="posts">
+    <!-- この辺がチャット欄 (読み込む前から存在していたもの) -->
+    <% @posts.each do |post| %>
+      <div class="post">
+        <span class="post_id"><%= post.id %> 名前: <%=  %></span>
+        <br>
+        <%= post.content %>
+      </div>
+    <% end %>
+  </div>
